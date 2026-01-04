@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chess Game Design System - Dark Theme */
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 18%;
+    --ring: 142 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Chess-specific colors */
+    --chess-light: 35 30% 75%;
+    --chess-dark: 25 25% 35%;
+    --chess-highlight: 142 70% 45%;
+    --chess-selected: 200 80% 50%;
+    --chess-check: 0 70% 50%;
+    --chess-last-move: 45 90% 55%;
+
+    /* Piece colors */
+    --piece-white: 35 20% 95%;
+    --piece-black: 220 15% 15%;
+
+    /* Status colors */
+    --success: 142 70% 45%;
+    --warning: 45 90% 55%;
+    --info: 200 80% 50%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 142 70% 45%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 18%;
+    --ring: 142 70% 45%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 142 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer components {
+  .chess-square-light {
+    background-color: hsl(var(--chess-light));
+  }
+
+  .chess-square-dark {
+    background-color: hsl(var(--chess-dark));
+  }
+
+  .chess-square-selected {
+    background-color: hsl(var(--chess-selected) / 0.6);
+  }
+
+  .chess-square-highlight {
+    background-color: hsl(var(--chess-highlight) / 0.4);
+  }
+
+  .chess-square-check {
+    background-color: hsl(var(--chess-check) / 0.6);
+  }
+
+  .chess-square-last-move {
+    background-color: hsl(var(--chess-last-move) / 0.3);
+  }
+
+  .piece-white {
+    color: hsl(var(--piece-white));
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .piece-black {
+    color: hsl(var(--piece-black));
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-lg;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
